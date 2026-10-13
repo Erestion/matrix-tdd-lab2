@@ -10,20 +10,15 @@ class Matrix {
     this.data = data;
   }
 
-  // Add another matrix to the current one
+  // Add another matrix using immutable map transformation
   add(other) {
     if (this.rows !== other.rows || this.cols !== other.cols) {
       throw new Error('Dimension mismatch');
     }
 
-    const resultData = [];
-    for (let i = 0; i < this.rows; i++) {
-      const row = [];
-      for (let j = 0; j < this.cols; j++) {
-        row.push(this.data[i][j] + other.data[i][j]);
-      }
-      resultData.push(row);
-    }
+    const resultData = this.data.map((row, i) =>
+      row.map((val, j) => val + other.data[i][j])
+    );
 
     return new Matrix(resultData);
   }
