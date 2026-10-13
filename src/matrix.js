@@ -1,4 +1,5 @@
 class Matrix {
+  
   // Initialize matrix dimensions and 2D array data
   constructor(data) {
     if (!Array.isArray(data) || data.length === 0 || !Array.isArray(data[0])) {
@@ -22,6 +23,20 @@ class Matrix {
 
     return new Matrix(resultData);
   }
+
+  // Swap rows and columns (matrix transposition)
+  transpose() {
+    const resultData = [];
+    for (let j = 0; j < this.cols; j++) {
+      const newRow = [];
+      for (let i = 0; i < this.rows; i++) {
+        newRow.push(this.data[i][j]);
+      }
+      resultData.push(newRow);
+    }
+    return new Matrix(resultData);
+  }
+
 }
 
 module.exports = Matrix;
