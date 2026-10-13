@@ -43,3 +43,25 @@ describe('Matrix - Addition', () => {
     expect(() => a.add(b)).to.throw(Error, 'Dimension mismatch');
   });
 });
+
+describe('Matrix - Transpose', () => {
+  it('should transpose a rectangular matrix (2x3 -> 3x2)', () => {
+    // Arrange
+    const m = new Matrix([
+      [1, 2, 3],
+      [4, 5, 6]
+    ]);
+
+    // Act
+    const transposed = m.transpose();
+
+    // Assert
+    expect(transposed.rows).to.equal(3);
+    expect(transposed.cols).to.equal(2);
+    expect(transposed.data).to.deep.equal([
+      [1, 4],
+      [2, 5],
+      [3, 6]
+    ]);
+  });
+});
