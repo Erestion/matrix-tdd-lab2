@@ -37,3 +37,9 @@ The repository commit history reflects the iterative development process:
 ```bash
 git clone <repository_url>
 cd matrix-tdd-lab2
+
+2. Install dependencies:
+npm install
+
+3. Run the test suite:
+npm test
